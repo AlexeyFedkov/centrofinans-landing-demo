@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Центрофинанс — займы до зарплаты</title>
+  <meta name="description" content="Займы до 30 000 ₽. 800+ офисов по России. Только паспорт. Заберите наличные сегодня." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a5d1a;
+      --primary-dark: #144714;
+      --primary-light: #e8f5e8;
+      --accent: #ff6b35;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --light: #9ca3af;
+      --line: #e5e7eb;
+      --fill: #f3f4f6;
+      --paper: #ffffff;
+      --bg: #f9fafb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .header-phone {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .header-phone:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, var(--paper) 0%, var(--bg) 100%);
+      padding: 40px 0 60px;
+    }
+    .hero-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* Calculator */
+    .calc {
+      background: var(--paper);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .calc-row {
+      margin-bottom: 24px;
+    }
+    .calc-row:last-of-type { margin-bottom: 0; }
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .calc-label span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .calc-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .calc-value small {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Slider styling */
+    .slider-wrap {
+      position: relative;
+      padding: 8px 0;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      background: var(--line);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 50%;
+      cursor: grab;
+      box-shadow: 0 2px 8px rgba(26,93,26,0.3);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+    input[type="range"]::-webkit-slider-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.05);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      cursor: grab;
+      box-shadow: 0 2px 8px rgba(26,93,26,0.3);
+    }
+    .slider-range {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 8px;
+    }
+
+    /* CTA Button */
+    .cta {
+      display: block;
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 18px 24px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      font-family: inherit;
+    }
+    .cta:hover {
+      background: var(--primary-dark);
+    }
+    .cta:active {
+      transform: scale(0.98);
+    }
+
+    /* Trust line */
+    .trust-line {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .trust-line::before {
+      content: "✓ ";
+      color: var(--primary);
+    }
+
+    /* Fine print */
+    .fine {
+      font-size: 12px;
+      color: var(--light);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* Trust chips section */
+    .trust-section {
+      padding: 48px 0;
+      background: var(--paper);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .trust-chip {
+      background: var(--primary-light);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .trust-chip-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .trust-chip-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .trust-chip-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* How it works */
+    .how-section {
+      padding: 48px 0;
+      background: var(--bg);
+    }
+    .section-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--paper);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 48px 0;
+      background: var(--paper);
+    }
+    .faq-list {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+    .faq-q span {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      padding-right: 16px;
+    }
+    .faq-q::after {
+      content: "+";
+      font-size: 24px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .faq-item.open .faq-q::after {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 200px;
+    }
+    .faq-a p {
+      padding: 0 0 20px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+    }
+    .footer-logo {
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    footer p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal {
+      background: var(--paper);
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .modal h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .modal p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .modal-close {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .modal-close:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Metrics Panel (internal toggle) */
+    .metrics-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .metrics-panel {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      min-width: 280px;
+      z-index: 999;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .metrics-panel.open {
+      display: block;
+    }
+    .metrics-panel h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+    .metric-label {
+      opacity: 0.7;
+    }
+    .metric-value {
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .hero {
+        padding: 60px 0 80px;
+      }
+      .hero h1 {
+        font-size: 44px;
+      }
+      .hero-sub {
+        font-size: 19px;
+      }
+      .calc {
+        padding: 36px 40px;
+      }
+      .calc-value {
+        font-size: 36px;
+      }
+      .trust-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 900px;
+      }
+      .steps {
+        flex-direction: row;
+        max-width: 900px;
+      }
+      .step {
+        flex: 1;
+        flex-direction: column;
+        text-align: center;
+      }
+      .step-num {
+        margin: 0 auto 12px;
+      }
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">Центрофинанс</a>
+      <a href="tel:88005551234" class="header-phone">8 800 555-12-34</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Сколько нужно до&nbsp;зарплаты?</h1>
+        <p class="hero-sub">Посчитайте сумму — оформите заявку. Решение после проверки.</p>
+
+        <!-- Calculator -->
+        <div class="calc">
+          <div class="calc-row">
+            <div class="calc-label">
+              <span>Сумма</span>
+              <span class="calc-value" id="amountDisplay">15 000 <small>₽</small></span>
+            </div>
+            <div class="slider-wrap">
+              <input type="range" id="amountSlider" min="1000" max="30000" step="1000" value="15000" />
+            </div>
+            <div class="slider-range">
+              <span>1 000 ₽</span>
+              <span>30 000 ₽</span>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-label">
+              <span>Срок</span>
+              <span class="calc-value" id="termDisplay">14 <small>дней</small></span>
+            </div>
+            <div class="slider-wrap">
+              <input type="range" id="termSlider" min="7" max="30" step="1" value="14" />
+            </div>
+            <div class="slider-range">
+              <span>7 дней</span>
+              <span>30 дней</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <button class="cta" id="ctaButton">Оформить заявку</button>
+        <p class="trust-line">800+ офисов — заберите наличные сегодня · только паспорт</p>
+        <p class="fine">условия зависят от продукта · расчёт примерный · полные условия в договоре</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust chips -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-chip">
+          <div class="trust-chip-icon">🏢</div>
+          <div class="trust-chip-value">800+</div>
+          <div class="trust-chip-label">офисов по России</div>
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">📄</div>
+          <div class="trust-chip-value">Паспорт</div>
+          <div class="trust-chip-label">без справок 2-НДФЛ</div>
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">💵</div>
+          <div class="trust-chip-value">Касса</div>
+          <div class="trust-chip-label">наличные сегодня</div>
+        </div>
+        <div class="trust-chip">
+          <div class="trust-chip-icon">🌐</div>
+          <div class="trust-chip-value">Сеть</div>
+          <div class="trust-chip-label">не только карта</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-section">
+    <div class="container">
+      <h2 class="section-title">Как это работает</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Заявка онлайн</h3>
+            <p>Выберите сумму и срок, заполните короткую форму</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Быстрая проверка</h3>
+            <p>Мы рассмотрим заявку и свяжемся с вами</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Получите деньги</h3>
+            <p>Заберите наличные в ближайшем офисе сети</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q"><span>Как оформить?</span></button>
+          <div class="faq-a">
+            <p>Посчитайте сумму, оставьте заявку — дальше подскажем по шагам и поможем до результата.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Точно только паспорт?</span></button>
+          <div class="faq-a">
+            <p>Для большинства продуктов достаточно паспорта. Окончательные условия зависят от выбранного продукта и результата проверки — мы хотим помочь и подберём подходящий вариант.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Деньги на карту или наличными?</span></button>
+          <div class="faq-a">
+            <p>Можно забрать наличные в одном из 800+ офисов нашей сети по всей России. Это удобно, если карта не нужна или хотите получить деньги сразу на руки.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Всем одобряют?</span></button>
+          <div class="faq-a">
+            <p>Каждая заявка проходит проверку — мы хотим помочь, но решение принимается индивидуально. Оставьте заявку, и мы постараемся найти подходящее решение.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Сколько стоит займ?</span></button>
+          <div class="faq-a">
+            <p>Процентная ставка и полная стоимость займа указываются в договоре. Калькулятор на сайте показывает примерный расчёт — точные условия узнаете после одобрения заявки.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Центрофинанс</div>
+      <p>условия зависят от продукта · расчёт примерный · полные условия в договоре</p>
+    </div>
+  </footer>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="modal-icon">✅</div>
+      <h2>Заявка принята</h2>
+      <p>Мы свяжемся с вами в ближайшее время, чтобы уточнить детали и помочь с оформлением.</p>
+      <button class="modal-close" id="modalClose">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Metrics Toggle Button -->
+  <button class="metrics-toggle" id="metricsToggle" title="Метрики">📊</button>
+
+  <!-- Metrics Panel -->
+  <div class="metrics-panel" id="metricsPanel">
+    <h4>Метрики</h4>
+    <div class="metric-row">
+      <span class="metric-label">calculator_interact</span>
+      <span class="metric-value" id="metricCalcInteract">0</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">cta_click</span>
+      <span class="metric-value" id="metricCtaClick">0</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">Последний time_to_cta</span>
+      <span class="metric-value" id="metricLastTimeToCta">—</span>
+    </div>
+    <div class="metric-row">
+      <span class="metric-label">Средний time_to_cta</span>
+      <span class="metric-value" id="metricAvgTimeToCta">—</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Analytics state
+      const pageLoadTime = Date.now();
+      let calcInteractCount = 0;
+      let ctaClickCount = 0;
+      let hasInteractedWithCalc = false;
+      const timesToCta = [];
+
+      // Ensure dataLayer exists
+      window.dataLayer = window.dataLayer || [];
+
+      // Track event helper
+      function trackEvent(eventName, props = {}) {
+        const eventData = {
+          event: eventName,
+          timestamp: Date.now(),
+          ...props
+        };
+
+        // Console log
+        console.log('[Analytics]', eventName, props);
+
+        // dataLayer push
+        window.dataLayer.push(eventData);
+
+        return eventData;
+      }
+
+      // Format number with spaces (Russian style)
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      }
+
+      // Update metrics panel
+      function updateMetricsPanel() {
+        document.getElementById('metricCalcInteract').textContent = calcInteractCount;
+        document.getElementById('metricCtaClick').textContent = ctaClickCount;
+
+        if (timesToCta.length > 0) {
+          const lastTime = timesToCta[timesToCta.length - 1];
+          document.getElementById('metricLastTimeToCta').textContent = formatNumber(lastTime) + ' ms';
+
+          const avgTime = Math.round(timesToCta.reduce((a, b) => a + b, 0) / timesToCta.length);
+          document.getElementById('metricAvgTimeToCta').textContent = formatNumber(avgTime) + ' ms';
+        }
+      }
+
+      // Amount slider
+      const amountSlider = document.getElementById('amountSlider');
+      const amountDisplay = document.getElementById('amountDisplay');
+
+      amountSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        amountDisplay.innerHTML = formatNumber(value) + ' <small>₽</small>';
+
+        if (!hasInteractedWithCalc) {
+          hasInteractedWithCalc = true;
+          calcInteractCount++;
+          trackEvent('calculator_interact', {
+            slider: 'amount',
+            value: value
+          });
+          updateMetricsPanel();
+        }
+      });
+
+      // Term slider
+      const termSlider = document.getElementById('termSlider');
+      const termDisplay = document.getElementById('termDisplay');
+
+      termSlider.addEventListener('input', function() {
+        const value = parseInt(this.value);
+        const suffix = getDaysWord(value);
+        termDisplay.innerHTML = value + ' <small>' + suffix + '</small>';
+
+        if (!hasInteractedWithCalc) {
+          hasInteractedWithCalc = true;
+          calcInteractCount++;
+          trackEvent('calculator_interact', {
+            slider: 'term',
+            value: value
+          });
+          updateMetricsPanel();
+        }
+      });
+
+      // Russian days word form
+      function getDaysWord(n) {
+        const lastTwo = n % 100;
+        const lastOne = n % 10;
+        if (lastTwo >= 11 && lastTwo <= 19) return 'дней';
+        if (lastOne === 1) return 'день';
+        if (lastOne >= 2 && lastOne <= 4) return 'дня';
+        return 'дней';
+      }
+
+      // CTA button
+      const ctaButton = document.getElementById('ctaButton');
+      const successModal = document.getElementById('successModal');
+      const modalClose = document.getElementById('modalClose');
+
+      ctaButton.addEventListener('click', function() {
+        const amount = parseInt(amountSlider.value);
+        const term = parseInt(termSlider.value);
+        const timeToCtaMs = Date.now() - pageLoadTime;
+
+        ctaClickCount++;
+        timesToCta.push(timeToCtaMs);
+
+        trackEvent('cta_click', {
+          amount: amount,
+          term: term
+        });
+
+        trackEvent('time_to_first_cta_ms', {
+          time_ms: timeToCtaMs,
+          is_first: ctaClickCount === 1
+        });
+
+        updateMetricsPanel();
+
+        // Show modal
+        successModal.classList.add('open');
+      });
+
+      // Modal close
+      modalClose.addEventListener('click', function() {
+        successModal.classList.remove('open');
+      });
+
+      successModal.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+          successModal.classList.remove('open');
+        }
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const item = this.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+
+          // Close all
+          document.querySelectorAll('.faq-item').forEach(function(i) {
+            i.classList.remove('open');
+          });
+
+          // Open clicked if was closed
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      });
+
+      // Metrics panel toggle
+      const metricsToggle = document.getElementById('metricsToggle');
+      const metricsPanel = document.getElementById('metricsPanel');
+
+      metricsToggle.addEventListener('click', function() {
+        metricsPanel.classList.toggle('open');
+      });
+
+      // Close metrics panel on outside click
+      document.addEventListener('click', function(e) {
+        if (!metricsPanel.contains(e.target) && !metricsToggle.contains(e.target)) {
+          metricsPanel.classList.remove('open');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
