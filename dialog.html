@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Centrofinans — диалог growth-команды</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a222c;
+      --text: #e8eef4;
+      --muted: #8b9aab;
+      --line: #2a3542;
+      --user: #3d7ea6;
+      --gpm: #5b8c5a;
+      --mkt: #c4a35a;
+      --des: #8b7ec8;
+      --dev: #5a9e9a;
+      --res: #a67c52;
+      --law: #9a6b7c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      font-size: 16px;
+      padding: 12px 12px 48px;
+      padding-bottom: max(48px, env(safe-area-inset-bottom));
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(var(--bg) 70%, transparent);
+      padding: 12px 4px 20px;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 1.15rem;
+      margin: 0 0 4px;
+      font-weight: 700;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 8px;
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--card);
+    }
+    section {
+      margin: 0 0 28px;
+    }
+    section h2 {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+      padding: 0 4px;
+    }
+    .msg {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--line);
+    }
+    .msg.user { border-left-color: var(--user); }
+    .msg.gpm { border-left-color: var(--gpm); }
+    .msg.mkt { border-left-color: var(--mkt); }
+    .msg.des { border-left-color: var(--des); }
+    .msg.dev { border-left-color: var(--dev); }
+    .msg.res { border-left-color: var(--res); }
+    .msg.law { border-left-color: var(--law); }
+    .who {
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin: 0 0 6px;
+      letter-spacing: 0.02em;
+    }
+    .msg.user .who { color: #7eb8d8; }
+    .msg.gpm .who { color: #8fca8a; }
+    .msg.mkt .who { color: #e0c47a; }
+    .msg.des .who { color: #b5a8e8; }
+    .msg.dev .who { color: #7ecfc9; }
+    .msg.res .who { color: #d4a574; }
+    .msg.law .who { color: #c995a8; }
+    .body {
+      margin: 0;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .body strong { font-weight: 650; }
+    .body a { color: #8ec8ff; }
+    .pill {
+      display: inline-block;
+      background: #243040;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 16px 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Centrofinans — рост-демо</h1>
+    <p class="meta">Выгрузка диалога команды · удобно с телефона</p>
+    <nav class="toc">
+      <a href="#brief">Бриф</a>
+      <a href="#segment">Сегмент</a>
+      <a href="#why">Почему они</a>
+      <a href="#research">Research</a>
+      <a href="#offer">Оффер</a>
+      <a href="#legal">Юр.</a>
+      <a href="#wire">Wire → прототип</a>
+      <a href="#why-better">Почему лучше</a>
+      <a href="#links">Ссылки</a>
+    </nav>
+  </header>
+
+  <section id="brief">
+    <h2>Бриф</h2>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">Всем привет! Хочу показать другу, на что вы способны. У него продукт — centrofinans.ru. Давайте как growth-команда предложим новый дизайн лендинга. Нужны измеримые результаты. Сначала — кто пользователь. Только РФ.</p>
+    </article>
+  </section>
+
+  <section id="segment">
+    <h2>Сегмент и метрики</h2>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">Лендинг сейчас — каталог продуктов, а не разговор с человеком в стрессе «нужны деньги сегодня». Главный пользователь: 25–55, страх МФО, паспорт в кармане. Метрика дизайна: CTR в заявку и время до первого тапа по CTA.</p>
+    </article>
+    <article class="msg mkt">
+      <p class="who">Marketer</p>
+      <p class="body">Ок. Главный для демо: 25–45, «нужны деньги сегодня / до зарплаты», боится кидалова. Пенсионеры — отдельная ветка. North star: заявки / визит. Leading: время до CTA, % доскролла до калькулятора.</p>
+    </article>
+    <article class="msg gpm">
+      <p class="who">Growth Product Manager</p>
+      <p class="body">Фиксируем сегмент #1 «до зарплаты». Порядок: Research → Designer wire → Marketer оффер → Vibecoder прототип + события → Юрист красные линии. A/B на их трафике без аналитики не обещаем — на демо воронка прототипа.</p>
+    </article>
+  </section>
+
+  <section id="why">
+    <h2>Почему Centrofinans</h2>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">Важно подумать, почему именно centrofinans.ru</p>
+    </article>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">Сильный офлайн-козырь — 800+ офисов и «живые» деньги — а сайт как SEO-простыня с каталогом. Дизайн может соединить «сегодня в кассе» с лицом компании.</p>
+    </article>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">800+ для меня как для пользователя — магическое число</p>
+    </article>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">«800+» — якорь доверия у CTA, не статистика в подвале: «офис рядом — заберите наличные сегодня».</p>
+    </article>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <article class="msg res">
+      <p class="who">Researcher</p>
+      <p class="body">Рынок: (1) чисто онлайн/карта — Займер, MoneyMan; (2) офис/наличные — Касса взаимопомощи, Быстроденьги. Дыра centrofinans: trust «800+» и «только паспорт» есть в тексте, не на первом экране. Бить в «живые деньги в офисе рядом».
+
+Wordstat (18.08–16.09): займ онлайн на карту 130 267 · займ без отказа 124 688 · центрофинанс 92 966 · займ до зарплаты 32 691 · займ наличными 20 427. Hero на «до зарплаты» + наличные/800+, не на «карту».</p>
+    </article>
+  </section>
+
+  <section id="offer">
+    <h2>Оффер и FAQ</h2>
+    <article class="msg mkt">
+      <p class="who">Marketer</p>
+      <p class="body"><strong>H1:</strong> Сколько нужно до зарплаты?
+<strong>Подзаголовок:</strong> Посчитайте сумму — оформите заявку. Решение после проверки.
+<strong>У CTA:</strong> 800+ офисов — заберите наличные сегодня · только паспорт
+<strong>CTA:</strong> Оформить заявку</p>
+    </article>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">Слишком много «нет» в FAQ — мы ХОТИМ дать кредит всем, а если не можем — объясним, что сделать, чтобы помочь.</p>
+    </article>
+    <article class="msg mkt">
+      <p class="who">Marketer</p>
+      <p class="body">FAQ v2 «хотим помочь»:
+1) Как оформить? — посчитайте сумму, оставьте заявку — подскажем по шагам
+2) Только паспорт? — чаще всего да; если нужно ещё — скажем сразу
+3) На карту или наличными? — можно забрать в офисе (800+)
+4) Если не одобрят сразу? — разберём почему и подскажем, что сделать
+5) Сколько стоит? — калькулятор примерный; точное — в договоре</p>
+    </article>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">Про демо — не надо</p>
+    </article>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">Убираем все «демо / не официальный сайт» из UI. Дисклеймер только про примерный расчёт и договор.</p>
+    </article>
+  </section>
+
+  <section id="legal">
+    <h2>Юридические рамки</h2>
+    <article class="msg law">
+      <p class="who">Юрист</p>
+      <p class="body">Не обещать «всем / без отказа / гарантированно». Калькулятор — «расчёт примерный». CTA = «Оформить заявку». «Поможем дойти до решения», не «до результата» (звучит как обещание выдачи). Прототип на отдельном домене, не centrofinans.ru.</p>
+    </article>
+  </section>
+
+  <section id="wire">
+    <h2>Wire → прототип</h2>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">Wire v1: H1 → калькулятор (сумма+срок) → CTA → trust «800+» у кнопки → чипы доверия / FAQ. Файл: /workspace/centrofinans-demo/wire-hero.html</p>
+    </article>
+    <article class="msg dev">
+      <p class="who">Vibecoder</p>
+      <p class="body">Готово к показу:
+https://alexeyfedkov.github.io/centrofinans-landing-demo/
+
+Репо: https://github.com/AlexeyFedkov/centrofinans-landing-demo
+
+Метрики: кнопка 📊 — cta_click и время до CTA.</p>
+    </article>
+  </section>
+
+  <section id="why-better">
+    <h2>Почему это лучше для бизнеса</h2>
+    <article class="msg user">
+      <p class="who">Алексей</p>
+      <p class="body">Почему вы считаете, что это лучше, чем было? Почему бизнес должен выбрать ваше решение?</p>
+    </article>
+    <article class="msg des">
+      <p class="who">Designer</p>
+      <p class="body">Старый сайт заставляет выбирать продукт, когда нужно одно: «хватает ли до зарплаты и не кинут ли». Убрали развилку → сумма → заявка, «800+» у кнопки. Бизнесу: меньше брошенных визитов, быстрее путь к заявке.</p>
+    </article>
+    <article class="msg mkt">
+      <p class="who">Marketer</p>
+      <p class="body">Та же реклама/бренд → больше заявок с визита, не новый бюджет на каналы.</p>
+    </article>
+    <article class="msg gpm">
+      <p class="who">Growth Product Manager</p>
+      <p class="body">В одну фразу: <strong>тот же трафик → больше заявок</strong>, потому что первый экран отвечает на страх и сумму, а не на каталог — и это меряется на прототипе.</p>
+    </article>
+    <article class="msg res">
+      <p class="who">Researcher</p>
+      <p class="body">«На карту» забрали онлайн-гиганты; Центрофинанс выигрывает кассой — старый сайт это прячет.</p>
+    </article>
+    <article class="msg law">
+      <p class="who">Юрист</p>
+      <p class="body">Меньше риска «перепродать» скорость/условия: заявка без гарантии всем, расчёт примерный, условия в договоре.</p>
+    </article>
+    <article class="msg dev">
+      <p class="who">Vibecoder</p>
+      <p class="body">Бизнесу не «нравится дизайн», а цифры: время до CTA и клик «Оформить» уже на прототипе.</p>
+    </article>
+  </section>
+
+  <section id="links">
+    <h2>Ссылки</h2>
+    <article class="msg gpm">
+      <p class="who">Итог</p>
+      <p class="body pill">Прототип: <a href="https://alexeyfedkov.github.io/centrofinans-landing-demo/">alexeyfedkov.github.io/centrofinans-landing-demo</a>
+<br /><br />Репо: <a href="https://github.com/AlexeyFedkov/centrofinans-landing-demo">github.com/AlexeyFedkov/centrofinans-landing-demo</a>
+<br /><br />Было: каталог МФО → Стало: «до зарплаты» + калькулятор + 800+ у CTA</p>
+    </article>
+  </section>
+
+  <footer>Выгрузка для быстрого чтения с телефона · Centrofinans growth demo</footer>
+</body>
+</html>
