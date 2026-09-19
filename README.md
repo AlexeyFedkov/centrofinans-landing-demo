@@ -7,6 +7,8 @@ Growth-team landing page prototype for Centrofinans RF microlending.
 ### Option 1: GitHub Pages (Recommended)
 Visit: **https://alexeyfedkov.github.io/centrofinans-landing-demo/**
 
+> **Enable Pages**: Go to repo Settings → Pages → Source: "Deploy from a branch" → Branch: `main` / `/ (root)` → Save
+
 ### Option 2: Open Locally
 1. Clone the repo
 2. Open `index.html` in any browser
